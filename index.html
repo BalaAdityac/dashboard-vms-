@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>VMS Techs — Live Dashboard</title>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script defer src="app.js"></script>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: system-ui, sans-serif; background: #aed0f3; color: #111; }
+
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1rem 2rem;
+      background: #8ef7b6;
+      border-bottom: 1px solid #061c49;
+    }
+    header h1 { font-size: 1.1rem; font-weight: 600; }
+    #last-updated { font-size: 0.8rem; color: #6b7280; }
+
+    main { padding: 2rem; }
+
+    .kpi-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1rem;
+      margin-bottom: 2rem;
+    }
+
+    .card {
+      background: #fff;
+      border-radius: 12px;
+      padding: 1.25rem;
+      border: 1px solid #e5e7eb;
+    }
+    .card .label { font-size: 0.8rem; color: #6b7280; margin-bottom: 0.5rem; }
+    .card .value { font-size: 1.6rem; font-weight: 600; color: #111; }
+
+    .charts-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1rem;
+    }
+    .chart-card {
+      background: #fff;
+      border-radius: 12px;
+      padding: 1.25rem;
+      border: 1px solid #e5e7eb;
+    }
+
+    @media (max-width: 768px) {
+      .kpi-grid { grid-template-columns: 1fr 1fr; }
+      .charts-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>VMS Techs — Live Dashboard</h1>
+    <span id="last-updated">Starting...</span>
+  </header>
+
+  <main>
+    <section class="kpi-grid">
+      <div class="card">
+        <p class="label">Total Revenue</p>
+        <p class="value" id="revenue">—</p>
+      </div>
+      <div class="card">
+        <p class="label">Active Users</p>
+        <p class="value" id="users">—</p>
+      </div>
+      <div class="card">
+        <p class="label">Conversion Rate</p>
+        <p class="value" id="conversion">—</p>
+      </div>
+      <div class="card">
+        <p class="label">Open Tickets</p>
+        <p class="value" id="tickets">—</p>
+      </div>
+    </section>
+
+    <section class="charts-grid">
+      <div class="chart-card">
+        <canvas id="revenueChart"></canvas>
+      </div>
+      <div class="chart-card">
+        <canvas id="userChart"></canvas>
+      </div>
+    </section>
+  </main>
+
+
+
+</body>
+</html>
