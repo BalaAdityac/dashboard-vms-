@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>VMS Techs — Live Dashboard</title>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=Outfit:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css" />
+  <script defer src="app.js"></script>
+</head>
+<body>
+
+  <!-- Animated background grid -->
+  <div class="bg-grid"></div>
+  <div class="bg-glow glow-1"></div>
+  <div class="bg-glow glow-2"></div>
+
+  <header>
+    <div class="header-left">
+      <div class="logo-dot"></div>
+      <div>
+        <h1>VMS Techs</h1>
+        <span class="subtitle">Operations Dashboard</span>
+      </div>
+    </div>
+    <div class="header-right">
+      <div class="live-badge">
+        <span class="pulse-dot"></span>
+        LIVE
+      </div>
+      <div class="clock-wrap">
+        <div id="clock" class="clock">--:--:--</div>
+        <div id="date" class="date-label">---</div>
+      </div>
+      <div class="last-updated-wrap">
+        <span id="last-updated">Connecting...</span>
+      </div>
+    </div>
+  </header>
+
+  <main>
+
+    <!-- KPI Cards -->
+    <section class="kpi-grid">
+      <div class="kpi-card" id="card-revenue">
+        <div class="kpi-icon">💰</div>
+        <div class="kpi-body">
+          <p class="kpi-label">Total Revenue</p>
+          <p class="kpi-value" id="revenue">—</p>
+          <p class="kpi-delta" id="revenue-delta">—</p>
+        </div>
+        <div class="kpi-spark"><canvas id="spark-revenue" width="80" height="36"></canvas></div>
+      </div>
+      <div class="kpi-card" id="card-users">
+        <div class="kpi-icon">👥</div>
+        <div class="kpi-body">
+          <p class="kpi-label">Active Users</p>
+          <p class="kpi-value" id="users">—</p>
+          <p class="kpi-delta" id="users-delta">—</p>
+        </div>
+        <div class="kpi-spark"><canvas id="spark-users" width="80" height="36"></canvas></div>
+      </div>
+      <div class="kpi-card" id="card-conversion">
+        <div class="kpi-icon">📈</div>
+        <div class="kpi-body">
+          <p class="kpi-label">Conversion Rate</p>
+          <p class="kpi-value" id="conversion">—</p>
+          <p class="kpi-delta" id="conversion-delta">—</p>
+        </div>
+        <div class="kpi-spark"><canvas id="spark-conversion" width="80" height="36"></canvas></div>
+      </div>
+      <div class="kpi-card" id="card-tickets">
+        <div class="kpi-icon">🎫</div>
+        <div class="kpi-body">
+          <p class="kpi-label">Open Tickets</p>
+          <p class="kpi-value" id="tickets">—</p>
+          <p class="kpi-delta" id="tickets-delta">—</p>
+        </div>
+        <div class="kpi-spark"><canvas id="spark-tickets" width="80" height="36"></canvas></div>
+      </div>
+    </section>
+
+    <!-- Charts -->
+    <section class="charts-grid">
+      <div class="chart-card">
+        <div class="chart-header">
+          <span class="chart-title">Revenue Trend</span>
+          <span class="chart-badge">Weekly</span>
+        </div>
+        <canvas id="revenueChart"></canvas>
+      </div>
+      <div class="chart-card">
+        <div class="chart-header">
+          <span class="chart-title">Active Users</span>
+          <span class="chart-badge">Weekly</span>
+        </div>
+        <canvas id="userChart"></canvas>
+      </div>
+    </section>
+
+    <!-- AI Insights Panel -->
+    <section class="insights-panel">
+      <div class="insights-header">
+        <div class="ai-icon">⚡</div>
+        <span>AI Insights</span>
+        <span class="insights-badge">Auto-analysis</span>
+      </div>
+      <div class="insights-body" id="insights-body">
+        <div class="insight-item loading">Analysing metrics...</div>
+      </div>
+    </section>
+
+  </main>
+
+</body>
+</html>
